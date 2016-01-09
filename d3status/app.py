@@ -25,7 +25,7 @@ from tornado import web
 from tornado.ioloop import IOLoop
 from tornado.httpserver import HTTPServer
 from tornado.options import options
-from tornado.database import Connection
+from torndb import Connection
 
 try:
     import d3status
