@@ -82,7 +82,7 @@ def main():
 
     http_server = HTTPServer(Application(),
                              xheaders=True)
-    http_server.bind(int(options.port), "127.0.0.1")  # listen local only
+    http_server.bind(int(options.port), "0.0.0.0")  # listen local only
     http_server.start(1)
 
     IOLoop.instance().start()

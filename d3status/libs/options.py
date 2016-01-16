@@ -10,7 +10,7 @@ import logging
 import os
 
 from tornado.options import parse_command_line, options, define
-
+import pdb
 
 def parse_config_file(path):
     """Rewrite tornado default parse_config_file.
@@ -24,10 +24,10 @@ def parse_config_file(path):
     execfile(path, config, config)
     for name in config:
         if name in options:
-            options[name].set(config[name])
+            options.__setattr__(name, config[name])
+            #options[name]=config[name]
         else:
             define(name, config[name])
-
 
 def parse_options():
     _root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
